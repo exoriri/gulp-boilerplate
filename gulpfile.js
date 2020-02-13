@@ -24,18 +24,20 @@ gulp.task('pug', () => {
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('serve', () => {
+gulp.task('filesWatch', (done) => {
+    browserSync.reload('./dest/**/*.html');
+    done();
+});
+
+gulp.task('serve', gulp.series('pug', 'css', () => {
     browserSync.init({
-        server: {
-            baseDir: './dest/views/',
-            index: "index.html"
-        },
+        server: './dest/views/',
         port: 3000,
     });
 
     gulp.watch('src/css/**/*.css', gulp.series('css'));
     gulp.watch('src/views/**/*.pug', gulp.series('pug'));
-    gulp.watch('./dest/**/*.html').on('change', browserSync.reload);
-});
+    gulp.watch('./dest/**/*').on('change', browserSync.reload);
+}));
 
 gulp.task('default', gulp.series('serve'));
