@@ -1,2 +1,5 @@
 # gulp-boilerplate
-Initial config
+Initial gulp config includes:
+    BrowserSync
+    PostCss
+    Pug
