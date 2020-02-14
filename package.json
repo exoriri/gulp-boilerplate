@@ -21,13 +21,17 @@
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
     "gulp-postcss": "^8.0.0",
-    "gulp-pug": "^4.0.1"
+    "gulp-pug": "^4.0.1",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1"
   },
   "browserslist": [
     "defaults",
     "not IE 11",
     "not IE_Mob 11",
     "maintained node versions"
-  ]
+  ],
+  "dependencies": {}
 }
